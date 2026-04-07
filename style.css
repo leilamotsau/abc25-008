@@ -1,0 +1,188 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+ 
+/* CSS Variables – Clean Girl Aesthetic */
+:root {
+    --bg-soft: #FFF7F9;
+    --primary: #E8AEB7;
+    --accent: #C06C84;
+    --text-dark: #2B2B2B;
+    --white: #FFFFFF;
+    --shadow-sm: 0 5px 20px rgba(0,0,0,0.02), 0 2px 4px rgba(0,0,0,0.05);
+}
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-soft);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding-top: 80px; /* space for fixed navbar */
+}
+ 
+/* Headings – Playfair Display */
+h1, h2, h3, h4, h5, h6,
+.navbar-brand,
+.hero h1,
+.card-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+ 
+/* Navbar – soft, minimal */
+.navbar {
+    background-color: rgba(255, 247, 249, 0.98) !important;
+    backdrop-filter: blur(4px);
+    box-shadow: var(--shadow-sm);
+    border-bottom: 1px solid rgba(192, 108, 132, 0.2);
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--primary);
+}
+.brand-logo {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 1px;
+}
+ 
+/* Hero Section – soft & airy */
+.hero {
+    background: linear-gradient(135deg, #FFF2F5 0%, #FFE9EF 100%);
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: -80px;
+    padding-top: 80px;
+}
+.hero h1 {
+    font-size: 3.2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+.hero .lead {
+    font-size: 1.2rem;
+    color: #5c4b51;
+}
+ 
+/* Buttons – luxe pastel */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    font-weight: 500;
+    padding: 0.75rem 2rem;
+    border-radius: 40px;
+    transition: all 0.2s;
+}
+.btn-primary:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+.btn-outline-primary {
+    border-color: var(--primary);
+    color: var(--accent);
+    border-radius: 40px;
+}
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+ 
+/* Cards – clean & minimal */
+.card {
+    background: var(--white);
+    border: none;
+    border-radius: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s ease;
+    overflow: hidden;
+}
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(192, 108, 132, 0.1);
+}
+.card-img-top {
+    border-radius: 24px 24px 0 0;
+    object-fit: cover;
+    height: 260px;
+    width: 100%;
+}
+.card-title {
+    color: var(--accent);
+    font-weight: 600;
+}
+.card-text {
+    font-size: 0.95rem;
+    color: #4a3b3f;
+}
+ 
+/* Sections */
+section {
+    padding: 5rem 0;
+}
+.bg-light {
+    background-color: #FFF0F3 !important;
+}
+ 
+/* Footer – elegant & simple */
+footer {
+    background-color: #FCE9EE;
+    color: #4a3b3f;
+    border-top: 1px solid #FFDFE6;
+    font-size: 0.9rem;
+}
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+footer a:hover {
+    color: var(--primary);
+}
+ 
+/* Forms – soft & clean */
+.form-control, .form-select {
+    border-radius: 16px;
+    border: 1px solid #FFD9E0;
+    background-color: white;
+    padding: 0.75rem 1rem;
+    font-family: 'Inter', sans-serif;
+}
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(232, 174, 183, 0.2);
+}
+label {
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+ 
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .card-img-top {
+        height: 200px;
+    }
+    section {
+        padding: 3rem 0;
+    }
+}
+ 
