@@ -1,11 +1,11 @@
 /* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600&family=Playfair+Display:wght@400;500;600;700&display=swap');
  
-/* CSS Variables – Clean Girl Aesthetic with Champagne Gold */
+/* CSS Variables – Clean Girl Aesthetic with Warm Gold */
 :root {
     --bg-soft: #FFF7F9;
     --primary: #E8AEB7;
-    --accent: #E6C97A;      /* champagne gold */
+    --accent: #E8D07A;      /* warm gold base */
     --text-dark: #2B2B2B;
     --white: #FFFFFF;
     --shadow-sm: 0 5px 20px rgba(0,0,0,0.02), 0 2px 4px rgba(0,0,0,0.05);
@@ -22,7 +22,7 @@ body {
     background-color: var(--bg-soft);
     color: var(--text-dark);
     line-height: 1.6;
-    padding-top: 80px; /* space for fixed navbar */
+    padding-top: 80px;
 }
  
 /* Headings – Playfair Display */
@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6,
     background-color: rgba(255, 247, 249, 0.98) !important;
     backdrop-filter: blur(4px);
     box-shadow: var(--shadow-sm);
-    border-bottom: 1px solid rgba(230, 201, 122, 0.3);
+    border-bottom: 1px solid rgba(232, 208, 122, 0.3);
 }
 .navbar-dark .navbar-nav .nav-link {
     color: var(--text-dark);
@@ -77,31 +77,35 @@ h1, h2, h3, h4, h5, h6,
     color: #5c4b51;
 }
  
-/* Buttons – Champagne Gold */
+/* Buttons – Linear Gradient (Satin Gold) */
 .btn-primary {
-    background-color: var(--accent);
-    border-color: var(--accent);
+    background: linear-gradient(135deg, #E8D07A, #D4B85A);
+    border: none;
     color: #2B2B2B;
     font-weight: 500;
     padding: 0.75rem 2rem;
     border-radius: 40px;
-    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.25s ease;
 }
 .btn-primary:hover {
-    background-color: #d4b55a;
-    border-color: #d4b55a;
+    background: linear-gradient(135deg, #D4B85A, #C4A44A);
     transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(212, 184, 90, 0.25);
     color: #2B2B2B;
 }
 .btn-outline-primary {
-    border-color: var(--accent);
-    color: var(--accent);
+    border: 1.5px solid #E8D07A;
+    color: #E8D07A;
+    background: transparent;
     border-radius: 40px;
+    transition: all 0.2s;
 }
 .btn-outline-primary:hover {
-    background-color: var(--accent);
-    border-color: var(--accent);
+    background: #E8D07A;
     color: #2B2B2B;
+    border-color: #E8D07A;
+    transform: translateY(-2px);
 }
  
 /* Cards – clean & minimal */
@@ -115,7 +119,7 @@ h1, h2, h3, h4, h5, h6,
 }
 .card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(230, 201, 122, 0.15);
+    box-shadow: 0 12px 28px rgba(232, 208, 122, 0.15);
 }
 .card-img-top {
     border-radius: 24px 24px 0 0;
@@ -153,7 +157,7 @@ footer a {
     transition: color 0.2s;
 }
 footer a:hover {
-    color: #d4b55a;
+    color: #d4b85a;
 }
  
 /* Forms – soft & clean */
@@ -166,7 +170,7 @@ footer a:hover {
 }
 .form-control:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(230, 201, 122, 0.2);
+    box-shadow: 0 0 0 3px rgba(232, 208, 122, 0.2);
 }
 label {
     font-weight: 500;
@@ -174,7 +178,7 @@ label {
     margin-bottom: 0.5rem;
 }
  
-/* Optional: Gold underline for headings */
+/* Gold underline for headings */
 h2::after {
     content: '';
     display: block;
