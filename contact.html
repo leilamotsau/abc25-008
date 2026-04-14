@@ -31,7 +31,7 @@
         <div class="row g-5">
             <div class="col-md-6">
                 <h2 class="display-6">Let's talk</h2>
-                <p>Have questions about a wig, bundle, or custom order? Fill out the form and we'll reply within 24 hours.</p>
+                <p>Have questions or want to order multiple items? Fill out the form below and we'll reply within 24 hours.</p>
                 <div class="mt-4">
                     <p><strong>📍 Location</strong><br>Gaborone, Botswana (online consultations only)</p>
                     <p><strong>📞 Phone</strong><br>+267 71 234 567 (Mon–Fri, 9am–5pm)</p>
@@ -40,8 +40,9 @@
             </div>
             <div class="col-md-6">
                 <div class="card p-4 border-0 shadow-sm">
-                    <h3 class="mb-3">Send a message</h3>
+                    <h3 class="mb-3">Request a quote</h3>
                     <form id="contactForm">
+                        <!-- Contact fields -->
                         <div class="mb-3">
                             <label for="name" class="form-label">Name *</label>
                             <input type="text" class="form-control" id="name" required>
@@ -50,15 +51,55 @@
                             <label for="email" class="form-label">Email *</label>
                             <input type="email" class="form-control" id="email" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="subject" class="form-label">Subject *</label>
-                            <input type="text" class="form-control" id="subject" required>
+ 
+                        <!-- Product selection (multiple) -->
+                        <label class="form-label">Which products interest you? (select all that apply)</label>
+                        <div class="mb-3 border rounded-3 p-3 bg-light">
+                            <h6>Wigs</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Lace Front (P750)" id="wig1">
+                                <label class="form-check-label" for="wig1">Lace Front – P750</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Glueless (P890)" id="wig2">
+                                <label class="form-check-label" for="wig2">Glueless – P890</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Curly (P850)" id="wig3">
+                                <label class="form-check-label" for="wig3">Curly – P850</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Straight (P750)" id="wig4">
+                                <label class="form-check-label" for="wig4">Straight – P750</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Bob (P650)" id="wig5">
+                                <label class="form-check-label" for="wig5">Bob – P650</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Premium (P1,200)" id="wig6">
+                                <label class="form-check-label" for="wig6">Premium – P1,200</label>
+                            </div>
+                            <h6 class="mt-3">Bundles</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Starter Bundle (P850)" id="bundle1">
+                                <label class="form-check-label" for="bundle1">Starter Bundle – P850</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Care Bundle (P1,050)" id="bundle2">
+                                <label class="form-check-label" for="bundle2">Care Bundle – P1,050</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Premium Bundle (P2,200)" id="bundle3">
+                                <label class="form-check-label" for="bundle3">Premium Bundle – P2,200</label>
+                            </div>
                         </div>
+ 
                         <div class="mb-3">
-                            <label for="message" class="form-label">Message *</label>
-                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                            <label for="message" class="form-label">Additional details (optional)</label>
+                            <textarea class="form-control" id="message" rows="3"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Send message</button>
+                        <button type="submit" class="btn btn-primary w-100">Send inquiry</button>
                         <div id="formStatus" class="mt-3 text-center small"></div>
                     </form>
                 </div>
@@ -77,4 +118,49 @@
     <script src="script.js"></script>
 </body>
 </html>
+ 
+Script js
+ 
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+ 
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+ 
+            // Collect selected products
+            const checkboxes = document.querySelectorAll('.form-check-input:checked');
+            let selectedProducts = [];
+            checkboxes.forEach(cb => {
+                selectedProducts.push(cb.value);
+            });
+ 
+            // Validation
+            if (name === '' || email === '') {
+                document.getElementById('formStatus').innerHTML = '<div class="alert alert-danger">Name and email are required.</div>';
+                return;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                document.getElementById('formStatus').innerHTML = '<div class="alert alert-danger">Please enter a valid email address.</div>';
+                return;
+            }
+            if (selectedProducts.length === 0) {
+                document.getElementById('formStatus').innerHTML = '<div class="alert alert-warning">Please select at least one product.</div>';
+                return;
+            }
+ 
+            // Build success message
+            let productList = selectedProducts.join(', ');
+            let fullMessage = `Name: ${name}\nEmail: ${email}\nProducts: ${productList}\nAdditional details: ${message || 'None'}`;
+ 
+            // Simulate sending (in a real project, you'd send this to a server)
+            console.log(fullMessage);
+            document.getElementById('formStatus').innerHTML = `<div class="alert alert-success">Thank you ${name}! We received your request for: ${productList}. We'll contact you soon.</div>`;
+            form.reset();
+        });
+    }
+});
  
