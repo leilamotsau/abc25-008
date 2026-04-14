@@ -1,11 +1,11 @@
 /* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600&family=Playfair+Display:wght@400;500;600;700&display=swap');
  
-/* CSS Variables – Clean Girl Aesthetic with Warm Gold */
+/* CSS Variables – Clean Girl Aesthetic with Metallic Gold */
 :root {
     --bg-soft: #FFF7F9;
     --primary: #E8AEB7;
-    --accent: #E8D07A;      /* warm gold base */
+    --accent: #E0B84A;      /* warm, bright metallic gold base */
     --text-dark: #2B2B2B;
     --white: #FFFFFF;
     --shadow-sm: 0 5px 20px rgba(0,0,0,0.02), 0 2px 4px rgba(0,0,0,0.05);
@@ -19,7 +19,7 @@
  
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--bg-soft);
+    background: radial-gradient(circle at 10% 20%, #FFF7F9, #FFF0F3);
     color: var(--text-dark);
     line-height: 1.6;
     padding-top: 80px;
@@ -33,6 +33,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Playfair Display', serif;
     font-weight: 500;
     letter-spacing: -0.02em;
+    text-shadow: 0 1px 0 rgba(224, 184, 74, 0.08);
 }
  
 /* Navbar – soft, minimal */
@@ -40,7 +41,7 @@ h1, h2, h3, h4, h5, h6,
     background-color: rgba(255, 247, 249, 0.98) !important;
     backdrop-filter: blur(4px);
     box-shadow: var(--shadow-sm);
-    border-bottom: 1px solid rgba(232, 208, 122, 0.3);
+    border-bottom: 1px solid rgba(224, 184, 74, 0.3);
 }
 .navbar-dark .navbar-nav .nav-link {
     color: var(--text-dark);
@@ -50,6 +51,10 @@ h1, h2, h3, h4, h5, h6,
 .navbar-dark .navbar-nav .nav-link:hover {
     color: var(--accent);
 }
+.navbar-dark .navbar-nav .nav-link.active {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 6px;
+}
 .brand-logo {
     font-size: 1.6rem;
     font-weight: 600;
@@ -57,9 +62,9 @@ h1, h2, h3, h4, h5, h6,
     letter-spacing: 1px;
 }
  
-/* Hero Section – soft & airy */
+/* Hero Section – soft radial glow */
 .hero {
-    background: linear-gradient(135deg, #FFF2F5 0%, #FFE9EF 100%);
+    background: radial-gradient(circle at 50% 30%, #FFF5F7, #FFE9EF);
     min-height: 85vh;
     display: flex;
     align-items: center;
@@ -77,38 +82,54 @@ h1, h2, h3, h4, h5, h6,
     color: #5c4b51;
 }
  
-/* Buttons – Linear Gradient (Satin Gold) */
+/* Buttons – Metallic Gold (shiny, satin finish) */
 .btn-primary {
-    background: linear-gradient(135deg, #E8D07A, #D4B85A);
+    background: linear-gradient(135deg, #F2D86D, #E0B84A, #C99E2E);
+    background-size: 200% 200%;
     border: none;
     color: #2B2B2B;
-    font-weight: 500;
+    font-weight: 600;
     padding: 0.75rem 2rem;
     border-radius: 40px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(224, 184, 74, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,240,0.5), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.5s;
 }
 .btn-primary:hover {
-    background: linear-gradient(135deg, #D4B85A, #C4A44A);
+    background: linear-gradient(135deg, #E8C85A, #D4A832);
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(212, 184, 90, 0.25);
-    color: #2B2B2B;
+    box-shadow: 0 8px 20px rgba(224, 184, 74, 0.4);
+}
+.btn-primary:hover::before {
+    left: 100%;
 }
 .btn-outline-primary {
-    border: 1.5px solid #E8D07A;
-    color: #E8D07A;
+    border: 1.5px solid #E0B84A;
+    color: #E0B84A;
     background: transparent;
     border-radius: 40px;
     transition: all 0.2s;
 }
 .btn-outline-primary:hover {
-    background: #E8D07A;
+    background: #E0B84A;
     color: #2B2B2B;
-    border-color: #E8D07A;
-    transform: translateY(-2px);
+    border-color: #E0B84A;
+    box-shadow: 0 2px 8px rgba(224, 184, 74, 0.3);
 }
  
-/* Cards – clean & minimal */
+/* Cards – clean & minimal, with gold glow on hover */
 .card {
     background: var(--white);
     border: none;
@@ -119,13 +140,14 @@ h1, h2, h3, h4, h5, h6,
 }
 .card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(232, 208, 122, 0.15);
+    box-shadow: 0 12px 28px rgba(224, 184, 74, 0.2);
 }
 .card-img-top {
     border-radius: 24px 24px 0 0;
     object-fit: cover;
     height: 260px;
     width: 100%;
+    box-shadow: inset 0 0 0 1px rgba(224, 184, 74, 0.1);
 }
 .card-title {
     color: var(--text-dark);
@@ -152,12 +174,12 @@ footer {
     font-size: 0.9rem;
 }
 footer a {
-    color: var(--accent);
+    color: #C06C84;
     text-decoration: none;
     transition: color 0.2s;
 }
 footer a:hover {
-    color: #d4b85a;
+    color: var(--accent);
 }
  
 /* Forms – soft & clean */
@@ -170,7 +192,7 @@ footer a:hover {
 }
 .form-control:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(232, 208, 122, 0.2);
+    box-shadow: 0 0 0 3px rgba(224, 184, 74, 0.2);
 }
 label {
     font-weight: 500;
