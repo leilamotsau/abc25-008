@@ -72,28 +72,23 @@ h1, h2, h3, h4, h5, h6,
     padding-top: 80px;
 }
  
-/* ===== METALLIC GOLD TEXT (individual letter highlights, no animation) ===== */
+/* ===== SHIMMERING METALLIC GOLD TEXT (animated) ===== */
 .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: 3.2rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    /* Sharp repeating gradient – each letter catches a different highlight */
-    background: repeating-linear-gradient(
-        135deg,
-        #D4A832 0%,
-        #F5D76E 8%,
-        #FFF3B0 15%,
-        #F5D76E 22%,
-        #D4A832 30%
-    );
-    background-size: 300% 100%;
+    background: linear-gradient(135deg, #E6B85C, #F5D76E, #FFF3B0, #F5D76E, #D4A832);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    /* White sparkle effect on text edges */
-    text-shadow: 1px 1px 0 rgba(255, 255, 240, 0.8),
-                 -1px -1px 0 rgba(255, 255, 200, 0.5);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    animation: shimmer 5s linear infinite;
+}
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
 }
 /* Fallback for older browsers */
 @supports not (background-clip: text) {
